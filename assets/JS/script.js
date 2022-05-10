@@ -1,0 +1,1 @@
+var amadeusApiKey = fYFFYtB8IOl7sJtJssJ2AABnwUvetWiG;
