@@ -5,13 +5,62 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/CSS/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Tourist Buddy</title>
   </head>
   <body>
-    <header>
-      <!-- This is a comment -->
-      <h1>Tourist Buddy!</h1>
+    <header class="flex justify-center bg-lime-500">
+      <h1 class="text-xl ">Welcome to Tourist Buddy!</h1>
     </header>
+    <section class="flex justify-center">
+      <div class="text-l p-15">
+        <h2 class="flex justify-center text-l">Where are you headed?</h2>
+
+        <div class="flex justify-between">
+          <label for="destination">Destination:</label>
+          <input type="text" placeholder="Enter a destination">
+          
+          <label for="departure">Departure date:</label>
+          <input type="date" id="departure-date" name="trip-start" min="2022-01-01" max="2023-12-31">
+
+          <label for="return">Return date:</label>
+          <input type="date" id="return-date" name="trip-end" min="2022-01-01" max="2023-12-31">
+
+          <button type="submit">Search</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="flex justify-center flex-wrap p-5">
+      <div class="flex-col">
+        <h2>Weather in the area</h2>
+        <div class="flex border-2 border-black">
+          <p>Weather will go here</p>
+        </div>
+      </div>
+
+      
+    </section>
+
+    <section class="flex justify-around m-20">
+
+      <div class="flex-col">
+        <h2>Available flights</h2>
+        <div class="border-2 border-black">
+          <p>Available flights will go here</p>
+        </div>
+      </div>
+
+      <div class="flex-col">
+        <h2>Events in the area</h2>
+        <div class="border-2 border-black">
+          <p>Events will go here</p>
+        </div>
+      </div>
+
+    </section>
+
+
     <script src="./assets/JS/script.js"></script>
   </body>
 </html>
