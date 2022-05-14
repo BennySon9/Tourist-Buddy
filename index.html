@@ -8,27 +8,33 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Tourist Buddy</title>
   </head>
-  <body>
-    <header class="flex justify-center bg-lime-500">
+  <body class="bg-[#EFEAD8]">
+    <header class="flex justify-center bg-[#D0C9C0]">
       <h1 class="text-xl ">Welcome to Tourist Buddy!</h1>
     </header>
     <section class="flex justify-center">
       <div class="text-l p-15">
-        <h2 class="flex justify-center text-l">Where are you headed?</h2>
+        <h2 class="flex justify-center text-xl p-2">Where are you headed?</h2>
 
-        <div class="flex justify-between" id="input-field">
-          
-          <label for="destination">Destination:</label>
-          <input type="text" id="destination" placeholder="Enter a destination">
-          
+        <div class="flex justify-around" id="input-field">
+          <div class="flex p-5">
+            <label for="destination">Destination City:</label>
+            <input class="max-w-sm rounded bg-white overflow-hidden shadow-lg" type="text" id="destination" placeholder="Enter a destination">
+          </div>
 
-          <label for="departure">Departure date:</label>
-          <input type="date" id="departure-date" name="trip-start" min="2022-01-01" max="2023-12-31">
+          <div class="flex p-5">
+            <label for="departure">Departure date:</label>
+            <input type="date" id="departure-date" name="trip-start" min="2022-01-01" max="2023-12-31">
+          </div>
 
-          <label for="return">Return date:</label>
-          <input type="date" id="return-date" name="trip-end" min="2022-01-01" max="2023-12-31">
+          <div class="flex p-5">
+            <label for="return">Return date:</label>
+            <input type="date" id="return-date" name="trip-end" min="2022-01-01" max="2023-12-31">
+          </div>
 
-          <button type="submit" id="search">Search</button>
+          <div class="flex p-5">
+            <button class="max-w-sm rounded bg-white overflow-hidden shadow-lg" type="submit" id="search">Search</button>
+          </div>
         </div>
       </div>
     </section>
@@ -55,8 +61,8 @@
 
       <div class="flex-col">
         <h2>Events in the area</h2>
-        <div class="border-2 border-black">
-          <div class="max-w-sm rounded overflow-hidden shadow-lg">
+        <div class="">
+          <div class="max-w-sm rounded bg-white overflow-hidden shadow-lg">
             <img class="w-full">
             <div class="px-6 py-4">
               <div class="font-bold text-xl mb-2"></div>
