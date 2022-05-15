@@ -3,7 +3,6 @@ var departureDateEL = document.getElementById('departure-date')
 var returnDateEL = document.getElementById('return-date')
 var searchEL = document.getElementById('search')
 
-
 document.getElementById('search').onclick = function(){
 
     let destination = JSON.stringify(destinationEL.value)
@@ -14,11 +13,11 @@ document.getElementById('search').onclick = function(){
     localStorage.setItem("departure", JSON.stringify(departureDate))
     JSON.parse(localStorage.getItem(departureDateEL))
 
+
     let returnDate = JSON.stringify(returnDateEL.value)
     localStorage.setItem("return", JSON.stringify(returnDate))
     JSON.parse(localStorage.getItem(returnDateEL))
 
-    console.log(localStorage)
    
     $.ajax({
         type:"GET",
@@ -27,44 +26,36 @@ document.getElementById('search').onclick = function(){
         dataType: "json",
         success: function(json) {
 
-                var eventNumber = json._embedded.events.length
-                console.log(eventNumber)
-                var eventDate = json._embedded.events[0].dates.start.localDate
-                console.log(eventDate)
 
-                if(JSON.parse(departureDate) <= eventDate){
                     var event0Name = json._embedded.events[0].name
-                    $('.event-0-p').append(event0Name)
+                    $('.event-0-p').empty().append(event0Name)
 
                     var event0Img = json._embedded.events[0].images[1].url
                     $(".event-icon-0").attr("src", event0Img)
     
                     var event1Name = json._embedded.events[1].name
-                    $('.event-1-p').append(event1Name)
+                    $('.event-1-p').empty().append(event1Name)
 
                     var event1Img = json._embedded.events[1].images[1].url
                     $(".event-icon-1").attr("src", event1Img)
 
                     var event2Name = json._embedded.events[2].name
-                    $('.event-2-p').append(event2Name)
+                    $('.event-2-p').empty().append(event2Name)
 
                     var event2Img = json._embedded.events[2].images[1].url
                     $(".event-icon-2").attr("src", event2Img)
 
                     var event3Name = json._embedded.events[3].name
-                    $('.event-3-p').append(event3Name)
+                    $('.event-3-p').empty().append(event3Name)
 
                     var event3Img = json._embedded.events[3].images[1].url
                     $(".event-icon-3").attr("src", event3Img)
 
                     var event4Name = json._embedded.events[4].name
-                    $('.event-4-p').append(event4Name)
+                    $('.event-4-p').empty().append(event4Name)
 
                     var event4Img = json._embedded.events[4].images[1].url
                     $(".event-icon-4").attr("src", event4Img)
-                } else{
-                  
-                }
                 
                     console.log(json)
                     
