@@ -15,11 +15,25 @@ document.getElementById('search').onclick = function(){
     localStorage.setItem("departure", JSON.stringify(departureDate))
     JSON.parse(localStorage.getItem(departureDateEL))
 
+
     let returnDate = JSON.stringify(returnDateEL.value)
     localStorage.setItem("return", JSON.stringify(returnDate))
     JSON.parse(localStorage.getItem(returnDateEL))
 
-    console.log(localStorage)
+   
+    $.ajax({
+        type:"GET",
+        url:"https://app.ticketmaster.com/discovery/v2/events.json?city=" + JSON.parse(destination) + "&apikey=J5c4RhQvGVlW2JcXGoyA62yfl9i1K8iA",
+        async:true,
+        dataType: "json",
+        success: function(json) {
+
+
+                    var event0Name = json._embedded.events[0].name
+                    $('.event-0-p').empty().append(event0Name)
+
+                    var event0Img = json._embedded.events[0].images[1].url
+                    $(".event-icon-0").attr("src", event0Img)
     
     getWeather();
 }
