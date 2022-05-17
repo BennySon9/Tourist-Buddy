@@ -1,3 +1,4 @@
+var departureEL = document.getElementById('departure')
 var destinationEL = document.getElementById('destination')
 var departureDateEL = document.getElementById('departure-date')
 var returnDateEL = document.getElementById('return-date')
@@ -6,6 +7,10 @@ var searchEL = document.getElementById('search')
 var destinationWeatherEl = document.getElementById("destinationWeather")
 
 document.getElementById('search').onclick = function(){
+
+    let departure = JSON.stringify(departureEL.value)
+    localStorage.setItem("departure-location", departure)
+    JSON.parse(localStorage.getItem(departureEL))
 
     let destination = JSON.stringify(destinationEL.value)
     localStorage.setItem("destination", destination)
@@ -63,6 +68,8 @@ document.getElementById('search').onclick = function(){
                     
                     // Parse the response.
                     // Do other things.
+    
+                    
                  },
         error: function(xhr, status, err) {
                     // This time, we do not end up here!
@@ -70,6 +77,27 @@ document.getElementById('search').onclick = function(){
       });
     
     getWeather();
+    getFlight();
+
+    function getFlight(){
+        const settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://hotels4.p.rapidapi.com/locations/v2/search?query=detroit&locale=en_US&currency=USD",
+            "method": "GET",
+            "headers": {
+                "X-RapidAPI-Host": "hotels4.p.rapidapi.com",
+                "X-RapidAPI-Key": "43e3cea897mshaf5e8ec447a1b95p1e808ejsnd737bd0023d6"
+            }
+        };
+        
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+
+            // This is where you'll append the fetched API data to the HTML. Use the code for the events API and the weather API as reference.
+
+        });
+
 }
 
 function getWeather() {
@@ -116,4 +144,4 @@ function getWeather() {
 
 function k2f(K) {
     return Math.floor((K - 273.15) * 1.8 + 32);
-}
+}}

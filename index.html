@@ -9,7 +9,6 @@
     <title>Tourist Buddy</title>
   </head>
   <body class="bg-[#EFEAD8]">
-    <!-- header -->
     <header class="flex justify-center bg-[#D0C9C0]">
       <h1 class="text-xl p-5">Welcome to Tourist Buddy!</h1>
     </header>
@@ -18,22 +17,28 @@
         <h2 class="flex justify-center text-xl">Where are you headed?</h2>
 
         <div class="flex justify-around pt-5" id="input-field">
-          <div class="flex p-5">
-            <label for="destination">Destination City:</label>
-            <input class="max-w-sm rounded bg-white overflow-hidden shadow-lg" type="text" id="destination" placeholder="Enter a destination">
+
+          <div class="flex p-2">
+            <label for="departure-city">Departure City:</label>
+            <input class="max-w-sm rounded bg-white overflow-hidden shadow-lg" type="text" id="departure" placeholder="Enter a departure city">
           </div>
 
-          <div class="flex p-5">
-            <label for="departure">Departure date:</label>
+          <div class="flex p-2">
+            <label for="destination">Destination City:</label>
+            <input class="max-w-sm rounded bg-white overflow-hidden shadow-lg" type="text" id="destination" placeholder="Enter a destination city">
+          </div>
+
+          <div class="flex p-2">
+            <label for="departure-day">Departure date:</label>
             <input type="date" id="departure-date" name="trip-start" min='2022-01-01' max='2023-12-31'>
           </div>
 
-          <div class="flex p-5">
+          <div class="flex p-2">
             <label for="return">Return date:</label>
             <input type="date" id="return-date" name="trip-end" min='2022-01-01' max='2023-12-31'>
           </div>
 
-          <div class="flex p-5">
+          <div class="flex p-2">
             <button class="max-w-sm rounded bg-white overflow-hidden shadow-lg" type="submit" id="search">Search</button>
           </div>
         </div>
@@ -59,9 +64,6 @@
 
       <div class="flex-col">
         <h2>Available Flights:</h2>
-        <div class="border-2 border-black mt-2">
-          <p>Flights results...</p>
-        </div>
       </div>
 
       <div class="flex-col">
