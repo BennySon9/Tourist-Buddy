@@ -64,15 +64,11 @@ document.getElementById('search').onclick = function(){
                     var event4Img = json._embedded.events[4].images[1].url
                     $(".event-icon-4").attr("src", event4Img)
                 
-                    console.log(json)
-                    
-                    // Parse the response.
-                    // Do other things.
-    
+        
                     
                  },
         error: function(xhr, status, err) {
-                    // This time, we do not end up here!
+    
                  }
       });
     
@@ -83,7 +79,7 @@ document.getElementById('search').onclick = function(){
         const settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://hotels4.p.rapidapi.com/locations/v2/search?query=detroit&locale=en_US&currency=USD",
+            "url": "https://hotels4.p.rapidapi.com/locations/v2/search?query=" + JSON.parse(destination) + "&locale=en_US&currency=USD",
             "method": "GET",
             "headers": {
                 "X-RapidAPI-Host": "hotels4.p.rapidapi.com",
