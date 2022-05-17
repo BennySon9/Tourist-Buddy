@@ -94,7 +94,9 @@ document.getElementById('search').onclick = function(){
             console.log(response);
 
             // This is where you'll append the fetched API data to the HTML. Use the code for the events API and the weather API as reference.
-
+            // There are three data points in the HTML; the hotel name, hotel location, and attractions near the hotel (this is named "landmark" in the returned data from the API). 
+            // You can add more if you'd like, but these three can be a basis for the information in the card.
+            // When a location is input into the webpage, the API results will be logged. Use that as a reference for when you're appending data to the HTML.
         });
 
 }
