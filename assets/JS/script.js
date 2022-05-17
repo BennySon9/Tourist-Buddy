@@ -59,17 +59,34 @@ document.getElementById('search').onclick = function(){
                     var event4Img = json._embedded.events[4].images[1].url
                     $(".event-icon-4").attr("src", event4Img)
                 
-                    console.log(json)
                     
-                    // Parse the response.
-                    // Do other things.
                  },
         error: function(xhr, status, err) {
-                    // This time, we do not end up here!
                  }
       });
     
     getWeather();
+    getHotel();
+
+    function getHotel(){
+        const settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://hotels4.p.rapidapi.com/locations/v2/search?query=" + JSON.parse(destination) + "&locale=en_US&currency=USD",
+            "method": "GET",
+            "headers": {
+                "X-RapidAPI-Host": "hotels4.p.rapidapi.com",
+                "X-RapidAPI-Key": "43e3cea897mshaf5e8ec447a1b95p1e808ejsnd737bd0023d6"
+            }
+        };
+        
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+
+            // This is where you'll append the fetched API data to the HTML. Use the code for the events API and the weather API as reference.
+
+        });
+
 }
 
 function getWeather() {
@@ -116,4 +133,4 @@ function getWeather() {
 
 function k2f(K) {
     return Math.floor((K - 273.15) * 1.8 + 32);
-}
+}}
