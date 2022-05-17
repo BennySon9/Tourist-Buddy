@@ -7,6 +7,16 @@ var destinationWeatherEl = document.getElementById("destinationWeather")
 
 document.getElementById('search').onclick = function(){
 
+    var hotelimg0 = document.getElementById("hotel-img0")
+    hotelimg0.classList.remove('hidden')
+
+    var hotelimg1 = document.getElementById("hotel-img1")
+    hotelimg1.classList.remove('hidden')
+
+    var hotelimg2 = document.getElementById("hotel-img2")
+    hotelimg2.classList.remove('hidden')
+
+
     let destination = JSON.stringify(destinationEL.value)
     localStorage.setItem("destination", destination)
     JSON.parse(localStorage.getItem(destinationEL))
