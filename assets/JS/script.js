@@ -90,29 +90,57 @@ document.getElementById("search").onclick = function () {
     $.ajax(settings).done(function (response) {
       console.log(response);
       const hotelsGroup = response.suggestions.filter(
-        (x) => x.group == "HOTEL_GROUP"
+        (suggestion) => suggestion.group == "HOTEL_GROUP"
       );
       const hotels = hotelsGroup[0].entities;
-      console.log(hotels);
       let htmlString = "";
       let index = 0;
       for (const hotel of hotels) {
+        if (index > 4) {
+          break;
+        }
         htmlString += `<div class="max-w-sm rounded bg-white overflow-hidden shadow-lg">
-          <img class="w-full hidden" id="hotel-img0" src="./assets/IMG/hotel-room.jpeg">
-          <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2"></div>
-            <p class="text-gray-700 text-base hotel-name-${index}">
-            ${hotel.name}
-            </p>
-            <p class="text-gray-700 text-base hotel-location-${index}">
-            </p>
-            <p class="text-gray-700 text-base hotel-attractions-${index}">
-            </p>
-        </div>`;
+        <img class="w-full" id="hotel-img0" src="./assets/IMG/hotel-room.jpeg">
+        <div class="px-6 py-4">
+          <div class="font-bold text-xl mb-2"></div>
+          <p class="text-gray-700 text-base hotel-name-${index}">
+          ${hotel.name}
+          </p>
+          <p class="text-gray-700 text-base hotel-airport-0">
+          </p>
+          <p class="text-gray-700 text-base hotel-landmark-0">
+          </p>
+      </div>`;
         index++;
       }
-      console.log(hotelsGroup);
       document.getElementById("hotels").innerHTML = htmlString;
+
+      const landMarkGroup = response.suggestions.filter(
+        (suggestion) => suggestion.group == "LANDMARK_GROUP"
+      );
+      const landMarks = landMarkGroup[0].entities;
+      htmlString = "";
+      index = 0;
+
+      for (const landMark of landMarks) {
+        if (index > 2) {
+          break;
+        }
+      }
+
+      //   var transportGroup = response.suggestions.filter(
+      //     (suggestion) => suggestion.group == "TRANSPORT_GROUP"
+      //   );
+      //   var transportGroup = transportGroup[0].entities;
+      //   htmlString = "";
+      //   index = 0;
+
+      //   for (var transport of transport) {
+      //     if (index > 2) {
+      //       break;
+      //     }
+      //   }
+
       // This is where you'll append the fetched API data to the HTML. Use the code for the events API and the weather API as reference.
       // There are three data points in the HTML; the hotel name, hotel location, and attractions near the hotel (this is named "landmark" in the returned data from the API).
       // You can add more if you'd like, but these three can be a basis for the information in the card.
