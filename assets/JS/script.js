@@ -6,6 +6,16 @@ var searchEL = document.getElementById("search");
 var destinationWeatherEl = document.getElementById("destinationWeather");
 
 document.getElementById("search").onclick = function () {
+
+  var section = document.getElementById("section");
+  section.classList.remove("hidden");
+
+  var section1 = document.getElementById("section1");
+  section1.classList.remove("hidden");
+
+  var section2 = document.getElementById("section2");
+  section2.classList.remove("hidden");
+
   var hotelimg0 = document.getElementById("hotel-img0");
   hotelimg0.classList.remove("hidden");
 
